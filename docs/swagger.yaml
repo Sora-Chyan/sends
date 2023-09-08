@@ -1,4 +1,42 @@
+definitions:
+  models.AdminChooseTask:
+    properties:
+      Organization:
+        description: organization
+        type: integer
+      Posts:
+        description: posts
+        type: integer
+      State:
+        description: State
+        type: integer
+      StuNum:
+        description: StuNum
+        type: string
+    type: object
 info:
   contact: {}
-paths: {}
+paths:
+  /admin/show:
+    get:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: 获取信息id
+        in: body
+        name: messageId
+        required: true
+        schema:
+          $ref: '#/definitions/models.AdminChooseTask'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 通过审核
+      tags:
+      - 管理员
 swagger: "2.0"

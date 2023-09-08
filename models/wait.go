@@ -21,3 +21,13 @@ type Wait struct {
 	Path             string    //组织标识图片地址
 	State            int       //状态 0：待面试（默认） 1：面试结束
 }
+type AdminInfo struct {
+	Name     string `json:"name"`     //name
+	Password string `json:"password"` //password
+}
+type AdminChooseTask struct {
+	Organization uint   `json:"Organization"` //organization
+	Posts        uint   `json:"Posts"`        //posts
+	StuNum       string `json:"StuNum"`       //StuNum
+	State        int    `json:"State"`        //State
+}

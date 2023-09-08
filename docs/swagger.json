@@ -3,5 +3,63 @@
     "info": {
         "contact": {}
     },
-    "paths": {}
+    "paths": {
+        "/admin/show": {
+            "get": {
+                "tags": [
+                    "管理员"
+                ],
+                "summary": "通过审核",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "token",
+                        "name": "token",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "获取信息id",
+                        "name": "messageId",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.AdminChooseTask"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.AdminChooseTask": {
+            "type": "object",
+            "properties": {
+                "Organization": {
+                    "description": "organization",
+                    "type": "integer"
+                },
+                "Posts": {
+                    "description": "posts",
+                    "type": "integer"
+                },
+                "State": {
+                    "description": "State",
+                    "type": "integer"
+                },
+                "StuNum": {
+                    "description": "StuNum",
+                    "type": "string"
+                }
+            }
+        }
+    }
 }
